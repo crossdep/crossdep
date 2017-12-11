@@ -28,6 +28,9 @@ const validConfig = {
     },
     "cz-conventional-changelog": {
       path: "git@github.com:commitizen/cz-conventional-changelog.git"
+    },
+    "crossdep": {
+      path: "git@github.com:crossdep/crossdep.git"
     }
   },
   // Some example asserts
