@@ -1,4 +1,4 @@
-const cloneDeep = require('lodash.clonedeep');
+const {cloneDeep} = require('lodash/lang');
 
 async function parseConfig(unparsedConfig) {
     // return false;

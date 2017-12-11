@@ -1,5 +1,7 @@
 const path = require("path");
 const fse = require("fs-extra");
+const {uniqueBy} = require('lodash/array');
+
 const {
   parseConfig,
   validateConfig,
@@ -105,11 +107,17 @@ async function main({ config }) {
       process.exit(NO_REPOSITORIES_UPSERTED);
     }
 
-    // OPTIMIZATION: Only run rules on files that changed:
-    //   git --no-pager diff --name-only \
-    //     05773aefdc2e76426a3330789ca0b22c56f66608 \
-    //     ba3ff150b76ed7e5535654b0ffd36cdb21d64278
+    // Now we've got the files that were impacted by the last push
+    // so let's dedupe them and see what rules changed
 
+    // Once we know what rules to run, run them!
+    // We could alternatively run all of them.  :/
+
+    const filesChanged = upsertedRepositories.reduce((a,v) => {
+      return a.concat(v.filesChangedSinceLastPull);
+    }, []);
+
+    console.log(filesChanged);
     // We've got repos and their hash
 
     // Now, get rules out of the config
