@@ -1,0 +1,19 @@
+{
+  "name": "crossdep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jim Cummins <jimthedev@gmail.com> (http://github.com/jimthedev)",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "4.0.3",
+    "json-2-csv": "2.1.2",
+    "json2csv": "3.11.5",
+    "lodash.clonedeep": "4.5.0",
+    "winston": "2.4.0"
+  }
+}
